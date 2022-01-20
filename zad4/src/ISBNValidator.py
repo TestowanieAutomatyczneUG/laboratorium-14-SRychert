@@ -6,11 +6,11 @@ def validator(isbn_number: str) -> bool:
     if len(isbn_number) != 13:
         return False
 
-    weight = True
+    weight = False
     isbn_number_sum = 0
     for digit in isbn_number:
         try:
-            isbn_number_sum += int(digit) if weight else int(digit) * 3
+            isbn_number_sum += int(digit) * 3 if weight else int(digit)
             weight = not weight
         except ValueError:
             return False
